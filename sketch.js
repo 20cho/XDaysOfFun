@@ -1,13 +1,24 @@
+let x = 0;
+let y = 0;
+let spacing = 10; 
+
+
+
 function setup() {
-  createCanvas(400, 400);
-  background(240);
+  createCanvas(500, 500);
+  background(0);
 }
 
 function draw() {
-  if (mouseIsPressed) {
-    fill(0);
-  } else {
-    fill(255);
+  stroke(255);
+  if (random (1) < 0.5) {
+    line(x, y, x + spacing, y + spacing);
+  }else{
+    line(x, y + spacing, x + spacing, y);  
   }
-  ellipse(mouseX, mouseY, 80, 80);
+  x = x + spacing
+  if (x > width) { 
+    x = 0;
+    y = y + spacing;
+  }  
 }
